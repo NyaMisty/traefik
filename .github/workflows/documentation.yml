@@ -16,7 +16,7 @@ jobs:
   docs:
     name: Doc Process
     runs-on: ubuntu-latest
-    if: github.repository == 'traefik/traefik'
+    if: (true || github.repository == 'traefik/traefik')
 
     steps:
       - name: Check out code
