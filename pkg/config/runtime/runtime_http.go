@@ -18,7 +18,9 @@ func (c *Configuration) GetRoutersByEntryPoints(ctx context.Context, entryPoints
 	entryPointsRouters := make(map[string]map[string]*RouterInfo)
 
 	for rtName, rt := range c.Routers {
-		if (tls && rt.TLS == nil) || (!tls && rt.TLS != nil) {
+		//if (tls && rt.TLS == nil) || (!tls && rt.TLS != nil) {
+		if tls && rt.TLS == nil {
+			// for non TLS, either TLS or non TLS router should be able to routed
 			continue
 		}
 
